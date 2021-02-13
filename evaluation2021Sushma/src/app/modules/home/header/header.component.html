@@ -1,0 +1,35 @@
+<html>
+  <div *ngIf="header==1" class="relativePosition flex justify-center">
+    <img src="../../../../assets/images/Mask.png">
+    <img class="logoIcon" src="../../../../assets/images/Logo.png">
+    <div class="headerText">
+      <div  class=" heading boldFont">Discover the world’s best photos & videos</div>
+      <div style="margin-top: 10px;" class="font18 heading">Best memories online</div>
+      <div style="margin-top: 10px;" class="searchText relativePosition">
+
+
+        <input  class="searchBox" type="text" placeholder="Search photos, videos, artists" [(ngModel)]="search" (keypress)="searching($event)">
+<div class="searchCTA cursorPointer ">SEARCH</div>
+    </div>
+    </div>
+  </div>
+  <div *ngIf="header==2" class="headerColor headerContainer flex justify-center ">
+    <div  style="width: 75%;" class="flex spaceBetween headerContent">
+      <div>
+        <img src="../../../../assets/images/coloredLogo.png">
+
+      </div>
+
+      <div class="inputField" style="width: 500px;position: relative;">
+        <input  class="searchBox maxWidth" type="text" placeholder="Search photos, videos, artists" [(ngModel)]="search" (keypress)="searching($event)">
+        <div class="searchCTA cursorPointer ">SEARCH</div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+<app-gallery (favouriteTab)="selectHeader($event)"></app-gallery>
+
+</html>

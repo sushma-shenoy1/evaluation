@@ -1,0 +1,82 @@
+<div>
+<div class="galleryContainer">
+
+
+  <div class="flex galleryHeader spaceBetween">
+    <div class="flex cursorPointer">
+      <div (click)="tabChanged(0)" [ngClass]="selectedTab==0 ?'selectedTab':'tab'" class="tabGap relativePosition ">
+        Photos
+        <div *ngIf="selectedTab == 0" class="selectedTabBorder"></div>
+      </div>
+
+      <div (click)="tabChanged(1)" [ngClass]="selectedTab==1 ?'selectedTab':'tab'" class="tabGap relativePosition">
+        Videos
+        <div *ngIf="selectedTab == 1" class="selectedTabBorder"></div>
+
+      </div>
+    </div>
+    <div [ngClass]="selectedTab==2 ?'selectedTab':'tab'" (click)="getFavourites()"
+      class="tabGap  cursorPointer relativePosition">
+      Favourites
+      <div *ngIf="selectedTab == 2" class="selectedTabBorder"></div>
+
+    </div>
+  </div>
+  <div class=" border-bottom"></div>
+  <div *ngIf="selectedTab == 0 && photos.length>0" class="flex gallerybox">
+    <div class="margin-30" *ngFor="let photo of photos;let i=index">
+      <div class="cursorPointer"  style="position: relative;">
+        <img (click)="selectImage(photo)" class="imagesize" [src]="photo.src?.medium">
+        <img style="position: absolute;
+        right: 12px;
+          top: 11px;" class="cursorPointer" (click)="clickLikeIcon(i,'image')"
+          [src]="photo.liked ?'../../../../assets/images/liked.png':'../../../../assets/images/unlike.png'">
+        <img class="profileImg" src="../../../../assets/images/profile.jpg">
+        <span class="profileName">{{photo.photographer}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="selectedTab == 1 && videos.length>0" class="flex gallerybox">
+    <div class="margin-30" *ngFor="let photo of videos;let i=index">
+      <div class="cursorPointer" style="position: relative;">
+        <img (click)="selectImage(photo)" class="imagesize" [src]="photo.image">
+        <img style="position: absolute;
+        right: 12px;
+          top: 11px;" class="cursorPointer" (click)="clickLikeIcon(i,'videos')"
+          [src]="photo.liked ?'../../../../assets/images/liked.png':'../../../../assets/images/unlike.png'">
+        <img class="profileImg" src="../../../../assets/images/profile.jpg">
+        <span class="profileName">{{photo.user?.name}}</span>
+        <img class="videoPlay" src="../../../../assets/images/playVideo.png">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="selectedTab == 2 && (favouriteImageList.length>0 || favouriteVideoList.length>0) "
+    class="flex gallerybox">
+    <div class="margin-30" *ngFor="let photo of favouriteImageList;let i=index">
+      <div style="position: relative;">
+        <img class="imagesize" [src]="photo.src?.medium">
+        <img style="position: absolute;
+      right: 12px;
+          top: 11px;" class="cursorPointer" (click)="clickLikeIcon(i,'image')"
+          [src]="photo.liked ?'../../../../assets/images/liked.png':'../../../../assets/images/unlike.png'">
+        <img class="profileImg" src="../../../../assets/images/profile.jpg">
+        <span class="profileName">{{photo.photographer}}</span>
+      </div>
+    </div>
+    <div class="margin-30" *ngFor="let photo of favouriteVideoList;let i=index">
+      <div style="position: relative;">
+        <img class="imagesize" [src]="photo.image">
+        <img style="position: absolute;
+        right: 12px;
+          top: 11px;" class="cursorPointer" (click)="clickLikeIcon(i,'videos')"
+          [src]="photo.liked ?'../../../../assets/images/liked.png':'../../../../assets/images/unlike.png'">
+        <img class="profileImg" src="../../../../assets/images/profile.jpg">
+        <span class="profileName">{{photo.user.name}}</span>
+        <img class="videoPlay" src="../../../../assets/images/playVideo.png">
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
+</div>
