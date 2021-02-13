@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class=" border-bottom"></div>
-  <div *ngIf="selectedTab == 0 && photos.length>0" class="flex gallerybox">
+  <div *ngIf="selectedTab == 0 && photos?.length>0" class="flex gallerybox">
     <div class="margin-30" *ngFor="let photo of photos;let i=index">
       <div class="cursorPointer"  style="position: relative;">
         <img (click)="selectImage(photo)" class="imagesize" [src]="photo.src?.medium">
@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div *ngIf="selectedTab == 1 && videos.length>0" class="flex gallerybox">
+  <div *ngIf="selectedTab == 1 && videos?.length>0" class="flex gallerybox">
     <div class="margin-30" *ngFor="let photo of videos;let i=index">
       <div class="cursorPointer" style="position: relative;">
         <img (click)="selectImage(photo)" class="imagesize" [src]="photo.image">
