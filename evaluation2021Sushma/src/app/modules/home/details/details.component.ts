@@ -14,11 +14,9 @@ search=''
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.index=params.id;
+      this.index=+params.id;
       this.content=JSON.parse(params.item)
     })
   }
-searching(event){
 
-}
 }

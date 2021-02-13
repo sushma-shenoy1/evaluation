@@ -47,7 +47,7 @@
           [src]="photo.liked ?'../../../../assets/images/liked.png':'../../../../assets/images/unlike.png'">
         <img class="profileImg" src="../../../../assets/images/profile.jpg">
         <span class="profileName">{{photo.user?.name}}</span>
-        <img class="videoPlay" src="../../../../assets/images/playVideo.png">
+        <img (click)="selectImage(photo)" class="videoPlay" src="../../../../assets/images/playVideo.png">
       </div>
     </div>
   </div>

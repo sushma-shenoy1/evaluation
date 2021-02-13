@@ -1,4 +1,4 @@
-<div>
+<html><div>
   <div class="headerColor headerContainer flex justify-center ">
   <div style="width: 75%;" class="flex spaceBetween headerContent">
     <div>
@@ -8,7 +8,7 @@
 
     <div class="inputField" style="width: 500px;position: relative;">
       <input class="searchBox maxWidth" type="text" placeholder="Search photos, videos, artists"
-        (keypress)="searching($event)">
+       >
       <div class="searchCTA cursorPointer ">SEARCH</div>
     </div>
   </div>
@@ -18,8 +18,11 @@
 
 </div>
 <div class="imageContainer" style="width: 100%;    height: 389px;display: flex;justify-content: center;">
-  <img class="imgStyle"  [src]="content.src.large">
+  <img class="imgStyle"  [src]="index==0? content.src.large :content.url">
 </div>
-<app-footer></app-footer>
+<div class="footer">
+  © Robosoft Technologies 1996-2021
 </div>
+</div>
+</html>
 
